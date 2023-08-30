@@ -37,7 +37,7 @@ def api_list_shoes(request):
         shoes = Shoe.objects.all()
         return JsonResponse(
             {"shoes": shoes},
-            encoder=ShoeListEncoder,
+            encoder=ShoeDetailEncoder,
         )
     else:
         content = json.loads(request.body)
@@ -59,8 +59,15 @@ def api_list_shoes(request):
         )
 
 
-@require_http_methods(["DELETE"])
+@require_http_methods(["GET", "DELETE"])
 def api_show_shoe(request, pk):
-    if request.method == "DELETE":
+    if request.method == "GET":
+        shoe = Shoe.objects.get(id=pk)
+        return JsonResponse(
+            shoe,
+            encoder=ShoeDetailEncoder,
+            safe=False,
+        )
+    elif request.method == "DELETE":
         count, _ = Shoe.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})

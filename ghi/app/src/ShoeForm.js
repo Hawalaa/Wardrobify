@@ -57,7 +57,6 @@ function ShoeForm() {
         if (response.ok) {
             const newShoe = await response.json();
             console.log(newShoe);
-
             setManufacturer('');
             setModelName('');
             setColor('');
@@ -87,36 +86,36 @@ function ShoeForm() {
                     <div className="shadow p-4 mt-4">
                         <h1>Create a new shoe</h1>
                         <form onSubmit={handleSubmit} id="create-shoe-form">
-                        <div className="form-floating mb-3">
-                            <input onChange={handleManufacturerChange} placeholder="Manufacturer" required type="text" id="manufacturer" name="manufacturer" className="form-control" />
-                            <label htmlFor="manufacturer">Manufacturer</label>
-                        </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={handleModelNameChange} placeholder="Model Name" required type="text" id="model_name" name="model_name" className="form-control" />
-                            <label htmlFor="model_name">Model Name</label>
-                        </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={handleColorChange} placeholder="color" required type="text" id="color" name="color" className="form-control" />
-                            <label htmlFor="color">Color</label>
-                        </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={handlePictureUrlChange} placeholder="Picture Url" required type="text" id="picture_url" name="picture_url" className="form-control" />
-                            <label htmlFor="picture_url">Picture Url</label>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="bin" className="form-label">Bin</label>
-                            <select onChange={handleBinChange} required id="bin" name="bin" className="form-select">
-                                <option value="">Choose a Bin</option>
-                                {bins.map(bin => {
-                                    return (
-                                        <option key={bin.id} value={bin.href}>
-                                            {bin.closet_name}
-                                        </option>
-                                    );
-                                })}
-                            </select>
-                        </div>
-                        <button className="btn btn-primary">Create</button>
+                            <div className="form-floating mb-3">
+                                <input onChange={handleManufacturerChange} placeholder="Manufacturer" required type="text" id="manufacturer" name="manufacturer" className="form-control" />
+                                <label htmlFor="manufacturer">Manufacturer</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={handleModelNameChange} placeholder="Model Name" required type="text" id="model_name" name="model_name" className="form-control" />
+                                <label htmlFor="model_name">Model Name</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={handleColorChange} placeholder="color" required type="text" id="color" name="color" className="form-control" />
+                                <label htmlFor="color">Color</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={handlePictureUrlChange} placeholder="Picture Url" required type="text" id="picture_url" name="picture_url" className="form-control" />
+                                <label htmlFor="picture_url">Picture Url</label>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="bin" className="form-label">Bin</label>
+                                <select onChange={handleBinChange} required id="bin" name="bin" className="form-select">
+                                    <option value="">Choose a Bin</option>
+                                    {bins.map(bin => {
+                                        return (
+                                            <option key={bin.id} value={bin.href}>
+                                                {bin.closet_name}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
+                            </div>
+                            <button className="btn btn-primary">Create</button>
                         </form>
                     </div>
                 </div>

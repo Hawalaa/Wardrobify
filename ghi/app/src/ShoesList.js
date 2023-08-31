@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 function ShoesList() {
     const [shoes, setShoes] = useState([])
 
@@ -15,7 +16,24 @@ function ShoesList() {
         getData()
     }, [])
 
+
+    const handleDelete = async (id) => {
+            const shoeUrl = `http://localhost:8080/api/shoes/${id}/`;
+            const fetchConfig = {
+                method: "delete",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            };
+            const response = await fetch(shoeUrl, fetchConfig);
+            if (response.ok) {
+                getData();
+            }
+    }
+
+
     return (
+        <>
         <table className="table table-striped">
             <thead>
                 <tr>
@@ -39,13 +57,15 @@ function ShoesList() {
                             </td>
                             <td>{ shoe.bin.closet_name }</td>
                             <td>
-                                <button onClick={() => this.delete(shoe.id)}>DELETE</button>
+                                <button onClick={() => handleDelete(shoe.id)}>DELETE</button>
                             </td>
                         </tr>
                     );
                 })}
             </tbody>
         </table>
+        <button className="btn btn-primary">Add New Shoe</button>
+        </>
     )
 }
 

@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
-import HatList from './HatList';
+import ShoesList from './ShoesList';
 import HatForm from './HatForm';
 import HatsList from './HatList';
+import ShoeForm from './ShoeForm';
 
 
 function App(props) {
@@ -19,6 +20,12 @@ function App(props) {
         </Route>
         <Route path='hats'>
             <Route path='new' element={<HatForm />} />
+        </Route>
+        <Route path='shoes'>
+            <Route path='new' element={<ShoeForm />} />
+        </Route>
+        <Route path='shoes'>
+            <Route path='' element={<ShoesList shoes={props.shoes} />} />
         </Route>
       </Routes>
     </BrowserRouter>

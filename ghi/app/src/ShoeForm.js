@@ -109,7 +109,7 @@ function ShoeForm() {
                                     {bins.map(bin => {
                                         return (
                                             <option key={bin.id} value={bin.href}>
-                                                {bin.closet_name}
+                                                {`${bin.closet_name} - Number: ${bin.bin_number} - Size: ${bin.bin_size}`}
                                             </option>
                                         );
                                     })}

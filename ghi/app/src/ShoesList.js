@@ -53,7 +53,7 @@ function ShoesList() {
                             <td>{ shoe.model_name }</td>
                             <td>{ shoe.color }</td>
                             <td>
-                                <img src={ shoe.picture_url } />
+                                <img src={ shoe.picture_url } height={150} width={150} />
                             </td>
                             <td>{ shoe.bin.closet_name }</td>
                             <td>

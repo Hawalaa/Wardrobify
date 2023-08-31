@@ -44,7 +44,7 @@ function HatForm() {
         data.location = location;
         console.log(data);
 
-        const hatUrl = 'http://localhost:8080/api/hats/';
+        const hatUrl = 'http://localhost:8090/api/hats/';
         const fetchConfig = {
           method: "post",
           body: JSON.stringify(data),

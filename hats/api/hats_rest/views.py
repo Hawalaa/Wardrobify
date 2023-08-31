@@ -26,17 +26,20 @@ class HatDetailEncoder(ModelEncoder):
         "color",
         "picture_url",
         "location",
-        "id",
+        "id"
     ]
+    encoders = {
+        "location": LocationVODetailEncoder()
+    }
 
 
 require_http_methods(["GET", "POST"])
 def api_list_hats(request):
     if request.method == "GET":
-        hats = hats.objects.all()
+        hats = Hat.objects.all()
         return JsonResponse(
-            {"hats": "hats"},
-            encoder=HatListEncoder,
+            {"hats": hats},
+            encoder=HatDetailEncoder,
         )
     else:
         content = json.loads(request.body)

@@ -5,7 +5,7 @@ function HatsList() {
     const [hats, setHats] = useState([])
 
     const getData = async () => {
-        const response = await fetch('http://localhost:8080/api/hats/');
+        const response = await fetch('http://localhost:8090/api/hats/');
         if (response.ok) {
             const data = await response.json();
             setHats(data.hats)
@@ -18,7 +18,7 @@ function HatsList() {
 
 
     const handleDelete = async (id) => {
-            const hatUrl = `http://localhost:8080/api/hats/${id}/`;
+            const hatUrl = `http://localhost:8090/api/hats/${id}/`;
             const fetchConfig = {
                 method: "delete",
                 headers: {
@@ -53,7 +53,7 @@ function HatsList() {
                             <td>{ hat.style_name }</td>
                             <td>{ hat.color }</td>
                             <td>
-                                <img src={ hat.picture_url } />
+                                <img src={ hat.picture_url } height={150} width={150}/>
                             </td>
                             <td>{ hat.location.closet_name }</td>
                             <td>
